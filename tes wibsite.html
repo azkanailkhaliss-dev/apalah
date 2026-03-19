@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>CaelisLy Design Art</title>
+  <style>
+    body {font-family: 'Georgia', serif; background:#fdfaf6; margin:0;}
+    header {background:#2c2c2c; color:#fff; text-align:center; padding:2rem;}
+    
+    nav a {
+      position: relative;
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0 15px;
+      text-decoration: none;
+      color: transparent;
+      background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: liquidFlow 3s infinite linear;
+      transition: transform 0.3s;
+    }
+    nav a:hover { transform: scale(1.1); }
+    nav a.active { border-bottom: 2px solid #ffd700; }
+
+    @keyframes liquidFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    section {animation: fadeIn 1s ease;}
+    @keyframes fadeIn {from {opacity:0;} to {opacity:1;}}
+
+    .produk, .pembayaran, .deskripsi, .kontak, .testimoni, .galeri, .detail {padding:2rem; text-align:center;}
+    .produk {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
+    .card {background:#fff; border:1px solid #ddd; padding:1rem; margin:10px auto; max-width:600px; transition:transform 0.3s, box-shadow 0.3s;}
+    .card:hover {transform:scale(1.02); box-shadow:0 4px 10px rgba(0,0,0,0.2);}
+    .card img {max-width:100%; border-radius:8px;}
+    footer {background:#2c2c2c; color:#fff; text-align:center; padding:1rem;}
+    button {background:#2c2c2c; color:#fff; border:none; padding:10px 20px; cursor:pointer; transition:0.3s;}
+    button:hover {background:#444; transform:scale(1.05);}
+    .hidden {display:none;}
+    .pembayaran img {max-width:200px; margin-top:1rem;}
+    .social-icons a {color:#fff; margin:0 10px; text-decoration:none; font-size:20px; transition:0.3s;}
+    .social-icons a:hover {color:#ffd700;}
+    .clock {margin-top:10px; font-size:14px; color:#ccc;}
+    .galeri img {width:200px; margin:10px; border-radius:8px; transition:transform 0.3s;}
+    .galeri img:hover {transform:rotate(3deg) scale(1.1);}
+    form input, form textarea {width:80%; padding:10px; margin:10px 0; border:1px solid #ccc; border-radius:5px;}
+    form button {margin-top:10px;}
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display:flex; align-items:center; justify-content:center; gap:15px;">
+      <img src="c:\Users\ACER\Downloads\wow\Logo CAELYS putih ta.png" alt="Logo Caelys" style="height:80px;">
+      <h1>CaelisLy Design Art</h1>
+    </div>
+
+    <nav>
+      <a href="#" onclick="showProduk()">Produk</a>
+      <a href="#" onclick="showPembayaran()">Pembayaran</a>
+      <a href="#" onclick="showDeskripsi()">Deskripsi</a>
+      <a href="#" onclick="showKontak()">Kontak</a>
+      <a href="#" onclick="showTestimoni()">Testimoni</a>
+      <a href="#" onclick="showGaleri()">Galeri</a>
+    </nav>
+    <div class="clock" id="clock"></div>
+  </header>
+
+  <!-- Produk -->
+  <section id="produk" class="produk">
+    <div class="card">
+      <img src="c:\Users\ACER\Downloads\wow\WhatsApp Image 2026-03-18 at 11.55.46 PM.jpeg" alt="Produk 1">
+      <h3>Desain Vintage 1</h3>
+      <p>Rp 68.000</p>
+      <button onclick="window.open('https://wa.me/6285261340251?text=Halo,%20saya%20ingin%20beli%20Desain%20Vintage%201','_blank')">Beli Sekarang</button>
+      <button onclick="showDetail('detail1')">Detail Produk</button>
+    </div>
+
+    <div class="card">
+      <img src="c:\Users\ACER\Downloads\wow\WhatsApp Image 2026-03-18 at 3.14.33 AM.jpeg" alt="Produk 2">
+      <h3>Desain Elegan 2</h3>
+      <p>Rp 83.000</p>
+      <button onclick="window.open('https://wa.me/6285261340251?text=Halo,%20saya%20ingin%20beli%20Desain%20Elegan%202','_blank')">Beli Sekarang</button>
+      <button onclick="showDetail('detail2')">Detail Produk</button>
+    </div>
+
+    <!-- Produk 3 -->
+    <div class="card">
+      <img src="c:\Users\ACER\Downloads\wow\WhatsApp Image 2026-03-19 at 12.34.30 AM.jpeg" alt="Produk 3">
+      <h3>Desain Artistik 3</h3>
+      <p>Rp 75.000</p>
+      <button onclick="window.open('https://wa.me/6285261340251?text=Halo,%20saya%20ingin%20beli%20Desain%20Artistik%203','_blank')">Beli Sekarang</button>
+      <button onclick="showDetail('detail3')">Detail Produk</button>
+    </div>
+  </section>
+
+  <!-- Detail Produk -->
+  <section id="detail1" class="detail hidden">
+    <h2>Detail Desain Vintage 1</h2>
+    <p>Harga: Rp 68.000</p>
+    <p>Bahan: File digital desain grafis</p>
+    <p>Ukuran: Resolusi tinggi (A4)</p>
+    <p>Keterangan: Desain ini terinspirasi dari gaya klasik tahun 70-an.</p>
+    <button onclick="showProduk()">Kembali ke Produk</button>
+  </section>
+
+  <section id="detail2" class="detail hidden">
+    <h2>Detail Desain Elegan 2</h2>
+    <p>Harga: Rp 83.000</p>
+    <p>Bahan: File digital desain grafis</p>
+    <p>Ukuran: Resolusi tinggi (A4)</p>
+    <p>Keterangan: Desain modern dengan garis tegas dan tipografi minimalis.</p>
+    <button onclick="showProduk()">Kembali ke Produk</button>
+  </section>
+
+  <!-- Detail Produk 3 -->
+  <section id="detail3" class="detail hidden">
+    <h2>Detail Desain Artistik 3</h2>
+    <p>Harga: Rp 75.000</p>
+    <p>Bahan: File digital desain grafis</p>
+    <p>Ukuran: Resolusi tinggi (A4)</p>
+    <p>Keterangan: Desain artistik dengan perpaduan warna modern dan sentuhan vintage, cocok untuk undangan maupun poster.</p>
+    <button onclick="showProduk()">Kembali ke Produk</button>
+  </section>
+
+  <!-- Deskripsi -->
+  <section id="deskripsi" class="deskripsi hidden">
+    <h2>Tentang Website</h2>
+    <p>
+      Website <strong>CaelisLy Design Art</strong> bukan sekadar etalase digital yang menampilkan karya grafis, 
+      melainkan sebuah ruang konseptual yang berupaya meramu estetika masa lampau dengan sensibilitas kontemporer. 
+      Di dalamnya, setiap lekuk garis, setiap komposisi warna, dan setiap tipografi yang dipilih, 
+      merupakan hasil dari proses perenungan panjang yang berakar pada tradisi visual klasik, 
+      namun tetap berusaha berdialog dengan dinamika modernitas yang senantiasa berubah. 
+      Dengan demikian, situs ini tidak hanya menghadirkan produk desain sebagai objek konsumsi, 
+      melainkan juga sebagai medium refleksi estetis yang mengundang pengunjung untuk menafsirkan ulang makna keindahan 
+      dalam konteks zaman yang serba cepat.
+    </p>
+    <p>
+      Lebih jauh lagi, <em>CaelisLy Design Art</em> berfungsi sebagai jembatan antara nostalgia dan inovasi. 
+      Ia menghidupkan kembali aura romantik era 70-an dan 80-an, namun tidak terjebak dalam sekadar reproduksi historis.
+          <p>
+      Lebih jauh lagi, <em>CaelisLy Design Art</em> berfungsi sebagai jembatan antara nostalgia dan inovasi. 
+      Ia menghidupkan kembali aura romantik era 70-an dan 80-an, namun tidak terjebak dalam sekadar reproduksi historis. 
+      Sebaliknya, setiap karya di sini merupakan reinterpretasi kreatif yang menyalurkan semangat retro ke dalam bentuk visual 
+      yang relevan bagi audiens masa kini. Dengan menggabungkan tekstur analog yang hangat dengan presisi digital yang tajam, 
+      website ini menghadirkan pengalaman estetika yang kompleks: sebuah perpaduan antara rasa akrab yang menenangkan 
+      dan kejutan visual yang menggugah.
+    </p>
+    <p>
+      Pada akhirnya, tujuan dari kehadiran website ini adalah untuk menegaskan bahwa seni grafis bukanlah sekadar dekorasi, 
+      melainkan bahasa simbolik yang mampu menyampaikan gagasan, emosi, bahkan ideologi. 
+      Setiap desain yang ditawarkan di sini adalah narasi visual yang mengandung lapisan makna, 
+      menuntut pembacaan yang lebih mendalam daripada sekadar pandangan sekilas. 
+      Dengan demikian, <strong>CaelisLy Design Art</strong> tidak hanya menjadi tempat transaksi, 
+      tetapi juga sebuah ruang kuratorial yang mengajak pengunjung untuk merenungkan kembali hubungan antara bentuk, fungsi, 
+      dan keindahan dalam lanskap budaya visual kontemporer.
+    </p>
+    <button onclick="showProduk()">Kembali ke Produk</button>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak" class="kontak hidden">
+    <h2>Hubungi Kami</h2>
+    <form onsubmit="alert('Pesan terkirim!'); return false;">
+      <input type="email" placeholder="Email Anda" required>
+      <textarea placeholder="Pesan Anda" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+    <button onclick="showProduk()">Kembali ke Produk</button>
+  </section>
+
+  <!-- Testimoni -->
+  <section id="testimoni" class="testimoni hidden">
+    <h2>Testimoni Konsumen</h2>
+    <div class="card"><p><strong>Azka 😣</strong></p><p>"Desain elegan, file jelas dan mudah dicetak."</p></div>
+    <div class="card"><p><strong>Ampoen adi adi</strong></p><p>"Harga terjangkau, tapi ingin lebih banyak pilihan warna."</p></div>
+    <div class="card"><p><strong>Firaz besi</strong></p><p>"Pelayanan ramah, saran: tambahkan panduan download."</p></div>
+    <div class="card"><p><strong>Habib ong</strong></p><p>"Desain keren, file agak berat di laptop lama."</p></div>
+    <div class="card"><p><strong>Zikra ah ah ah meng</strong></p><p>"Detail vintage unik, saran: tambah metode pembayaran bank."</p></div>
+    <div class="card"><p><strong>Oka</strong></p><p>"Wah,anak aku udh pande ngejual link bokep naruto anj,kok iso.😭😭😡"</p></div>
+    <button onclick="showProduk()">Kembali ke Produk</button>
+  </section>
+
+  <!-- Galeri -->
+  <section id="galeri" class="galeri hidden">
+    <h2>Galeri Karya</h2>
+    <img src="c:\Users\ACER\OneDrive\Gambar\goyung ju\466503051_1596744417606678_6428578859906522951_n.jpg" alt="go young ju">
+    <img src="c:\Users\ACER\OneDrive\Gambar\goyung ju\475815181_18386016715106921_5712433599810601154_n.jpg" alt="cantiknya awokwaoawk">
+    <img src="c:\Users\ACER\OneDrive\Gambar\goyung ju\491466796_18399194539106921_8491506893609794833_n.jpg" alt="indahnya ciptaan allah">
+    <img src="c:\Users\ACER\OneDrive\Gambar\goyung ju\494474513_18399844714106921_4079788023803926332_n.jpg" alt="allahumma shalli ala muhammad">
+    <img src="c:\Users\ACER\OneDrive\Gambar\goyung ju\509727154_18321509209224731_5336194308430748788_n.jpg" alt="Lukisan Abstrak">
+    <img src="c:\Users\ACER\OneDrive\Gambar\goyung ju\520504294_18411264148106921_3706792970295718357_n.jpg" alt="Bunga Mekar">
+    <img src="c:\Users\ACER\OneDrive\Gambar\goyung ju\622415682_18440312485106921_3761155924805843607_n.jpg" alt="Pantai Tropis">
+    <img src="c:\Users\ACER\OneDrive\Gambar\goyung ju\491460641_18398529649106921_1655100028060019040_n.jpg" alt="Poster Retro">
+    <img src="c:\Users\ACER\OneDrive\Gambar\goyung ju\484373230_18392560228106921_3431421546128814913_n.jpg" alt="Seni Modern">
+    <img src="c:\Users\ACER\OneDrive\Gambar\goyung ju\503520022_18407419066106921_4300624620566790306_n.jpg" alt="Danau Tenang">
+    <img src="c:\Users\ACER\OneDrive\Gambar\goyung ju\499401399_18402869824106921_2059613927808325847_n.jpg" alt="Ombak Laut">
+    <img src="ic:\Users\ACER\OneDrive\Gambar\goyung ju\471426823_1522763201759261_2446446129579102073_n.jpg" alt="Ladang Bunga Matahari">
+    <button onclick="showProduk()">Kembali ke Produk</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 CaelisLy Design Art</p>
+    <div class="social-icons">
+      <a href="#">🌐</a>
+      <a href="#">📷</a>
+      <a href="#">🐦</a>
+    </div>
+  </footer>
+
+  <script>
+    function setActiveMenu(fnName) {
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      document.querySelector(`nav a[onclick="${fnName}"]`).classList.add('active');
+    }
+
+    function showPembayaran() { hideAll(); document.getElementById('pembayaran').classList.remove('hidden'); setActiveMenu("showPembayaran()"); }
+    function showProduk() { hideAll(); document.getElementById('produk').classList.remove('hidden'); setActiveMenu("showProduk()"); }
+    function showDeskripsi() { hideAll(); document.getElementById('deskripsi').classList.remove('hidden'); setActiveMenu("showDeskripsi()"); }
+    function showKontak() { hideAll(); document.getElementById('kontak').classList.remove('hidden'); setActiveMenu("showKontak()"); }
+    function showTestimoni() { hideAll(); document.getElementById('testimoni').classList.remove('hidden'); setActiveMenu("showTestimoni()"); }
+    function showGaleri() { hideAll(); document.getElementById('galeri').classList.remove('hidden'); setActiveMenu("showGaleri()"); }
+    function showDetail(id) { hideAll(); document.getElementById(id).classList.remove('hidden'); }
+
+    function hideAll() {
+      ['produk','pembayaran','deskripsi','kontak','testimoni','galeri','detail1','detail2','detail3']
+        .forEach(id => { if(document.getElementById(id)) document.getElementById(id).classList.add('hidden'); });
+    }
+
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('clock').textContent = "Jam sekarang: " + now.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
